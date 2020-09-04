@@ -111,27 +111,47 @@ public class SUDOKU
 
 	public static void main(String[] args)
 	{
-		SUDOKU Sudoku = new SUDOKU()
-        int[][] board = new int[][]{
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 } 
-        }
-
-        if (Sudoku.solve(board))
-        {
-            Sudoku.printBoard(board);
-        }
-        else
-        {
-            System.out.println("ERROR");
-        }
-		
-	}	
+		SUDOKU Sudoku = new SUDOKU();
+		int[][] board = new int[9][9];
+		Scanner scan = new Scanner(System.in);
+		boolean exceptionHandler = true;
+		String input;
+		int number = -1;
+		IllegalArgumentException invalidPick = new IllegalArgumentException("Input value is out of range.");
+		//exception handler to make sure that the user inputs the proper number in range and is a number.
+		for(int row = 0;row<board.length;row++)
+		{
+			for(int col =0;col<board.length;col++)
+			{
+				while( exceptionHandler == true)
+				{
+					try
+					{
+						System.out.println("please enter a number from 1-9. 0 for a blank space.");
+						System.out.println("current row: "+ (row+1) + "\n" + "current col: " + (col+1));
+						input = scan.nextLine();
+						number = Integer.parseInt(input.substring(0));
+						exceptionHandler = false;
+						if (number<0||number>9)
+						{
+							throw invalidPick;
+						}
+					}
+					catch(Exception e)
+					{
+						System.out.println("NOT VALIDs");
+					}
+				}
+				exceptionHandler = true;
+				board[row][col] = number;
+			}
+		}
+        	if (Sudoku.solve(board))
+        	{
+            	Sudoku.printBoard(board);
+        	}
+        	else
+        	{
+            	System.out.println("ERROR");
+        	}
 }
