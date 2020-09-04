@@ -111,6 +111,27 @@ public class SUDOKU
 
 	public static void main(String[] args)
 	{
-		//TODO create board and add the solve function as well as printing out the completed and correct board.
+		SUDOKU Sudoku = new SUDOKU()
+        int[][] board = new int[][]{
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0 } 
+        }
+
+        if (Sudoku.solve(board))
+        {
+            Sudoku.printBoard(board);
+        }
+        else
+        {
+            System.out.println("ERROR");
+        }
+		
 	}	
 }
