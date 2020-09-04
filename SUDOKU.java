@@ -136,13 +136,18 @@ public class SUDOKU
 						{
 							throw invalidPick;
 						}
+						else
+						{
+							exceptionHandler=false;
+						}
+						
 					}
 					catch(Exception e)
 					{
 						System.out.println("NOT VALID");
 					}
+						
 				}
-				exceptionHandler = true;
 				board[row][col] = number;
 			}
 		}
