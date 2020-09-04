@@ -139,7 +139,7 @@ public class SUDOKU
 					}
 					catch(Exception e)
 					{
-						System.out.println("NOT VALIDs");
+						System.out.println("NOT VALID");
 					}
 				}
 				exceptionHandler = true;
